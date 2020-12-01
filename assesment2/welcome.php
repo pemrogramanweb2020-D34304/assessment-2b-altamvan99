@@ -15,7 +15,7 @@ if( ! isset($_SESSION['username'])){ // Jika tidak ada session username berarti 
   <h4>Anda berhasil login ke dalam aplikasi</h4>
 
   <a href="input.php" style ="padding:0.4% 0.8%; background-color:#009900; color:#fff; border-radius: 2px; text-decoration:none;">Tambah Data</a><br><br>
-
+  <a href="inputbaju.php" style ="padding:0.4% 0.8%; background-color:#009900; color:#fff; border-radius: 2px; text-decoration:none;">Tambah Baju</a><br><br>
     <table border="1" cellspacing="0" width="50%"> 
     <tr style="text-align:center; font -weight:bold; background-color:#eee; ">
     <td>no</td>
@@ -23,8 +23,8 @@ if( ! isset($_SESSION['username'])){ // Jika tidak ada session username berarti 
     <td>nama</td>
     <td>Harga</td>
     <td>Stok</td>
-    
     <td>opsi</td>
+    <td>order</td>
     </tr>
    
 
@@ -42,6 +42,10 @@ while($hasil = mysqli_fetch_array($select) ){
     <td><?php echo $hasil ['nama']?> </td>
     <td><?php echo $hasil ['harga']?> </td>
     <td><?php echo $hasil ['stok']?> </td>
+    <td>
+        <a href="edit.php?nama=<?php echo $hasil ['nama']?> ">Edit</a> || 
+        <a href="delete.php?nama=<?php echo $hasil ['nama']?> ">Hapus</a>
+    </td>
     
     <td>
        <a href="cart.php">Order Now</a>
